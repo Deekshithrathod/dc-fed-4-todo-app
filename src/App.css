@@ -1,0 +1,17 @@
+.container {
+  width: 80%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  color: #333;
+  font-family: "Raleway";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.62px;
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+.tabs-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.tab {
+  color: #333;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.selected {
+  background-color: aliceblue;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
