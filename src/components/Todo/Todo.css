@@ -1,5 +1,7 @@
 .todo {
   margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo > label {
@@ -23,10 +25,6 @@ input.checked {
   background-color: #2f80ed;
 }
 
-/* .todo > label > input[type="checkbox"]:focus {
-  box-shadow: 0 0 20px #2f80ed;
-} */
-
 .todo > label > .detail {
   color: #000;
   font-family: "Montserrat";
@@ -40,12 +38,8 @@ input.checked {
   text-decoration: line-through;
 }
 
-/* 
-input.checked::before {
-  content: "2714";
-  font-size: 1.5em;
-  color: #fff;
-  position: absolute;
-  right: 1px;
-  top: -5px;
-} */
+.todo > span {
+  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 50%;
+  padding: 0.25rem;
+}

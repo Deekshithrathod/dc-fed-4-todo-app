@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./Todo.css";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { todosState } from "../../state/atoms/todo";
+import { tabIdState } from "../../state/atoms/tabs";
 
 const Todo = ({
   id,
@@ -14,7 +15,7 @@ const Todo = ({
   checked: boolean;
 }) => {
   const setTodos = useSetRecoilState(todosState);
-
+  const tabIndex = useRecoilValue(tabIdState);
   const defaultValue = checked ? checked : false;
   const [isChecked, setIsChecked] = useState(defaultValue);
 
@@ -26,6 +27,14 @@ const Todo = ({
           newVal = completed;
         }
         return { ...todo, completed: newVal };
+      })
+    );
+  };
+
+  const deleteTodo = (id: number) => {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todo) => {
+        return todo.id !== id;
       })
     );
   };
@@ -47,6 +56,13 @@ const Todo = ({
           {detail}
         </span>
       </label>
+      {tabIndex === 3 && (
+        <span
+          className="material-symbols-outlined"
+          onClick={() => deleteTodo(id)}>
+          delete
+        </span>
+      )}
     </div>
   );
 };
