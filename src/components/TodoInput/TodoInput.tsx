@@ -8,9 +8,12 @@ const TodoInput = () => {
   const setTodos = useSetRecoilState(todosState);
 
   const handleClick = () => {
-    // console.log(inputVal);
     setTodos((prevState) => [
-      { id: prevState.length + 1, title: inputVal, completed: false },
+      {
+        id: Math.ceil(Math.random() * 1000),
+        title: inputVal,
+        completed: false,
+      },
       ...prevState,
     ]);
     setInputVal("");

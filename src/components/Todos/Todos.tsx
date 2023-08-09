@@ -9,8 +9,8 @@ const Todos = () => {
   const todos = useRecoilValue(filteredTodoListState);
   const activeTabId = useRecoilValue(tabIdState);
   const setTodos = useSetRecoilState(todosState);
-  const clearAllTodos = () => {
-    setTodos([]);
+  const clearAllCompletedTodos = () => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   };
   return (
     <>
@@ -29,7 +29,7 @@ const Todos = () => {
       </div>
       {activeTabId === 3 && (
         <div className="todos-info">
-          <button onClick={() => clearAllTodos}>
+          <button onClick={() => clearAllCompletedTodos()}>
             <span className="material-symbols-outlined">delete</span> delete all
           </button>
         </div>
