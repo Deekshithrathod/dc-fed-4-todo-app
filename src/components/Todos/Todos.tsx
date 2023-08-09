@@ -4,6 +4,7 @@ import TodoInput from "../TodoInput/TodoInput";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { filteredTodoListState, todosState } from "../../state/atoms/todo";
 import { tabIdState } from "../../state/atoms/tabs";
+import { useEffect } from "react";
 
 const Todos = () => {
   const todos = useRecoilValue(filteredTodoListState);
@@ -12,6 +13,12 @@ const Todos = () => {
   const clearAllCompletedTodos = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   };
+  // const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <>
       {activeTabId === 1 && <TodoInput />}

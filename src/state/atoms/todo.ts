@@ -8,9 +8,20 @@ export interface Todo {
   completed: boolean;
 }
 
+const getDefaultTodos = (): Todo[] => {
+  const localStorageData = localStorage.getItem("todos");
+  const existingTodos = [];
+  if (localStorageData !== null) {
+    existingTodos.push(...JSON.parse(localStorageData));
+  } else {
+    existingTodos.push(...Todos.todos);
+  }
+  return existingTodos;
+};
+
 export const todosState = atom({
   key: "todosList",
-  default: Todos.todos as Todo[],
+  default: getDefaultTodos() as Todo[],
 });
 
 export const filteredTodoListState = selector({
